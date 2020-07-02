@@ -8,9 +8,24 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="./javascript/buscar.js"></script>
+    <script type="text/javascript" src="./javascript/agente.js"></script>
 </head>
-<body>
-      TESTE
+<body onload="exibirUsuario()">
+        <div id="fotoUsuario" class="col-4">
+        </div>
+        <div id="perfil" class="col-8">
+        </div>
+        <br><br>
+        <div class="dropdown show">
+          <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Selecione um parceiro...
+          </a>
+        
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <c:forEach var="agenteParceiro" items="${allObjectsMap}" >
+              <a class="dropdown-item" href="${agenteParceiro.id}">"{agenteFinanceiro.nome_agente}"</a>
+          </c:foreach>
+          </div>
+        </div>
 </body>
 </html>

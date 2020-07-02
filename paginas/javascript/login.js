@@ -2,13 +2,13 @@ function login(){
     var verificador=document.getElementById("txtLogin").value;
     if(verificador.length==7){
         var mensagem={
-            racf : document.getElementById("txtLogin").value,
-            senha : document.getElementById("txtSenha").value
+            'racf' : document.getElementById("txtLogin").value,
+            'senha' : document.getElementById("txtSenha").value
         };
     }else{
         var mensagem={
-            email : document.getElementById("txtLogin").value,
-            senha : document.getElementById("txtSenha").value
+            'email' : document.getElementById("txtLogin").value,
+            'senha' : document.getElementById("txtSenha").value
         };
     };
 var cabecalho={
@@ -18,6 +18,8 @@ var cabecalho={
         "Content-Type" : "application/json"
     }
 }
+
+alert(JSON.stringify(mensagem));
 
 fetch("http://localhost:8080/login", cabecalho)
 .then(res => res.json())
