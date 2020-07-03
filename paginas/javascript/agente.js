@@ -31,3 +31,63 @@ function myFunction() {
       }
     }
   }
+
+function tableParceiros(){
+  var cabecalho={
+    method : "GET",
+    headers : {
+        "Content-Type" : "application/json"
+    }
+  }
+
+  fetch("http://localhost:8080/agentes", cabecalho)
+  .then(res => res.json())
+  .then(res => {
+      alert(JSON.stringify(res));
+      localStorage.setItem("agentes", JSON.stringify(res));
+  })
+  .catch(err => {
+      alert("Erro!");
+  })
+
+  var agentes = localStorage.getItem("agentes");
+  var myObj, x, txt = "";
+
+  myObj = JSON.parse(agentes);
+  txt = "<h3 class='text-center'>Top 10 Parceiros</h3>"+
+  "<table class='table'>" +
+  "<thead><tr><th scope='col'>Parceiro</th> " +
+  "<th scope='col'>Volume Transacional</th></tr> "
+  
+  for (x in myObj) {
+  txt += "<tr><td>" + myObj[x].nome_agente + "</td>" +
+  "<td>" + myObj[x].volume_transacional + "</td></tr> ";
+  }
+  txt += "</table>" 
+  document.getElementById("tabelaParceiros").innerHTML = txt;
+}
+
+
+function dropParceiros(){
+  var agentes = localStorage.getItem("agentes");
+  var myObj, x, txt = "";
+
+  myObj = JSON.parse(agentes);
+  txt = "<h3 class='text-center'>Selecione um Parceiro</h3>"+
+  "<table class='table'>" +
+  "<thead><tr><th scope='col'>Parceiro</th> " +
+  "<th scope='col'>Volume Transacional</th></tr> "
+  
+  for (x in myObj) {
+  txt += "<tr><td>" + myObj[x].nome_agente + "</td>" +
+  "<td>" + myObj[x].volume_transacional + "</td></tr> ";
+  }
+  txt += "</table>" 
+  document.getElementById("tabelaParceiros").innerHTML = txt;
+}
+
+
+function incializaPagina(){
+  tableParceiros();
+  exibirUsuario();
+}
