@@ -12,35 +12,50 @@
     <script type="text/javascript" src="./javascript/logout.js"></script>
 </head>
 <body onload="complete()">
-  <div class="row" style="margin-left: 2%;">
+  <div class="row" style="margin-left: 2%;margin-top: 1%;">
     <div class="form-group">
       <button type="button" class="btn btn-primary btn-block" onclick="voltar()"> Voltar  </button>
-      <button type="button" class="btn btn-primary btn-block" onclick="logout()"> LogOut  </button>
     </div> <!-- form-group// -->  
-  </div>
-    <div class="row" id="Parceiro" style="margin-left: 5%;">
-      <h3>
-        Parceiro
-      </h3>
-      <input type="text" id="valorParceiro" name="valorParceiro" readonly value="0" style="margin-left: 5%;">
+    <div class="form-group" style="margin-left: 75%;">
+      <button type="button" class="btn btn-danger btn-block" onclick="logout()"> LogOut  </button>
     </div>
-    <div class="row" id="Sucesso" style="margin-left: 5%;">
-      <h3>
-        Sucesso
-      </h3>
-      <input type="text" id="valorSucesso" name="valorSucesso" readonly value="0" style="margin-left: 5%;">
     </div>
-    <div class="row" id="Falhas" style="margin-left: 5%;">
-      <h3>
-        Falhas
-      </h3>
-      <input type="text" id="valorFalha" name="valorFalha" readonly value="0" style="margin-left: 5%;">
-    </div>
-    <div class="row" id="Fraudes" style="margin-left: 5%;">
-      <h3>
-        Fraudes
-      </h3>
-      <input type="text" id="valorFraude" name="valorFraude" readonly value="0" style="margin-left: 5%;">
-    </div>
+
+    <div class="row" style="justify-content: center; margin-top: 10%;">
+      <div class="card" >
+          <article class="card-body">
+            <form>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><strong>Parceiro</strong></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" id="valorParceiro" name="valorParceiro" readonly value="0" >
+              </div>
+
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><strong>Sucesso</strong></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" id="valorSucesso" name="valorSucesso" readonly value="0"  >
+              </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><strong>Falhas&nbsp;&nbsp;&nbsp;</strong></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" id="valorFalha" name="valorFalha" readonly value="0">
+              </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><strong>Fraudes&nbsp;</strong></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" id="valorFraude" name="valorFraude"  readonly value="0"  >
+              </div>
+
+            </form>
+          </article>
+      </div>  
 </body>
 </html>
