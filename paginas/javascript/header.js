@@ -9,7 +9,7 @@ function exibirUsuario(){
         document.getElementById("perfil").innerHTML = 
         "<h4>" + usuarioJson.nome.toUpperCase() + " ("+  usuarioJson.racf.toUpperCase()  + ")</h4>" ;
         document.getElementById("fotoUsuario").innerHTML = 
-        "<img alt='Imagem não encontrada' class='rounded-circle' style='width:120px;height:120px' src=./images/" + usuarioJson.foto + ">"
+        "<img alt='Imagem não encontrada' class='rounded-circle' style='width:80px;height:80px;' src=./images/" + usuarioJson.foto + ">"
     }
     return true
 }
