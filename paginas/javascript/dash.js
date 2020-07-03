@@ -26,3 +26,7 @@ function complete(){
     document.getElementById("valorFraude").value=sumFraude;
     document.getElementById("valorParceiro").value = myObj.nome_agente;
 }
+
+function voltar(){
+    window.location='agentes.html'
+}

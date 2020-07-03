@@ -9,12 +9,15 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./javascript/agente.js"></script>
+    <script type="text/javascript" src="./javascript/logout.js"></script>
 </head>
 <body onload="incializaPagina()">
-  <div class="row" style="margin-left: 1%;">
-    <div id="fotoUsuario" class="col-4"></div>
-    <div id="perfil" class="col-8"></div>
-    <br><br>
+  <div class="row" style="margin-left: 1%; margin-top: 1%; margin-bottom: 1%;">
+    <div id="fotoUsuario" style="margin-left: 1%; margin-right: 2%;"></div>
+    <div id="perfil" style="margin-right: 70%;"></div>
+    <div class="form-group">
+      <button type="button" class="btn btn-primary btn-block" onclick="logout()"> LogOut  </button>
+    </div> <!-- form-group// --> 
   </div>
   <div class="dropdown" style="margin-left: 1%;">
     <h3>Selecione o Parceiro</h3>
