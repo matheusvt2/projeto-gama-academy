@@ -8,19 +8,32 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../js/buscar.js"></script>
+    <script type="text/javascript" src="./javascript/dash.js"></script>
 </head>
-<body>
-    <div class="dropdown show">
-        <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
-        </a>
-      
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <c:forEach var="artista" items="${allObjectsMap}" >
-            <a class="dropdown-item" href="${artista.id}">"{artista.nomeartistico}"</a>
-        </c:foreach>
-        </div>
-      </div>
+<body onload="complete()">
+    <div class="row" id="Parceiro" style="margin-left: 5%;">
+      <h3>
+        Parceiro
+      </h3>
+      <input type="text" id="valorParceiro" name="valorParceiro" readonly value="0" style="margin-left: 5%;">
+    </div>
+    <div class="row" id="Sucesso" style="margin-left: 5%;">
+      <h3>
+        Sucesso
+      </h3>
+      <input type="text" id="valorSucesso" name="valorSucesso" readonly value="0" style="margin-left: 5%;">
+    </div>
+    <div class="row" id="Falhas" style="margin-left: 5%;">
+      <h3>
+        Falhas
+      </h3>
+      <input type="text" id="valorFalha" name="valorFalha" readonly value="0" style="margin-left: 5%;">
+    </div>
+    <div class="row" id="Fraudes" style="margin-left: 5%;">
+      <h3>
+        Fraudes
+      </h3>
+      <input type="text" id="valorFraude" name="valorFraude" readonly value="0" style="margin-left: 5%;">
+    </div>
 </body>
 </html>

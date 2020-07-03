@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.itau.aula.model.Musica;
 import br.com.polimorfos.projetofinal.DAO.AgenteFinanceiroDAO;
 import br.com.polimorfos.projetofinal.model.AgenteFinanceiro;
 
@@ -29,4 +30,14 @@ public class AgenteFinanceiroController {
         }
     }
     
+    @GetMapping("/agentes/{Id}")
+    public ResponseEntity<AgenteFinanceiro> exibirAgente(@PathVariable int Id){
+    	AgenteFinanceiro resposta = dao.findById(Id).orElse(null);
+		if(resposta == null) {
+			return ResponseEntity.status(404).build();
+		}
+		else {
+			return ResponseEntity.ok(resposta);
+		}
+	}
 }

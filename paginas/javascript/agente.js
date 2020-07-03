@@ -14,24 +14,6 @@ function exibirUsuario(){
     }
 }
 
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-  
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName(agenteFinanceiro.nome_agente);
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
-
 function tableParceiros(){
   var cabecalho={
     method : "GET",
@@ -43,7 +25,6 @@ function tableParceiros(){
   fetch("http://localhost:8080/agentes", cabecalho)
   .then(res => res.json())
   .then(res => {
-      alert(JSON.stringify(res));
       localStorage.setItem("agentes", JSON.stringify(res));
   })
   .catch(err => {
@@ -54,40 +35,61 @@ function tableParceiros(){
   var myObj, x, txt = "";
 
   myObj = JSON.parse(agentes);
+  myObj.sort(function (a, b) {
+    return b.volume_transacional-a.volume_transacional;
+  });
   txt = "<h3 class='text-center'>Top 10 Parceiros</h3>"+
   "<table class='table'>" +
   "<thead><tr><th scope='col'>Parceiro</th> " +
   "<th scope='col'>Volume Transacional</th></tr> "
   
   for (x in myObj) {
-  txt += "<tr><td>" + myObj[x].nome_agente + "</td>" +
-  "<td>" + myObj[x].volume_transacional + "</td></tr> ";
+    txt += "<tr><td>" + myObj[x].nome_agente + "</td>" +
+    "<td>" + myObj[x].volume_transacional + "</td></tr> ";
   }
   txt += "</table>" 
   document.getElementById("tabelaParceiros").innerHTML = txt;
 }
 
+function goToDash(nome){
+  var cabecalho={
+    method : "GET",
+    headers : {
+        "Content-Type" : "application/json"
+    }
+  }
+
+  fetch("http://localhost:8080/agentes/"+nome, cabecalho)
+  .then(res => res.json())
+  .then(res => {
+      localStorage.setItem("dashAgente", JSON.stringify(res));
+      window.location='dashboard.html'
+  })
+  .catch(err => {
+      alert("Erro");
+  })
+
+  
+}
 
 function dropParceiros(){
   var agentes = localStorage.getItem("agentes");
   var myObj, x, txt = "";
 
   myObj = JSON.parse(agentes);
-  txt = "<h3 class='text-center'>Selecione um Parceiro</h3>"+
-  "<table class='table'>" +
-  "<thead><tr><th scope='col'>Parceiro</th> " +
-  "<th scope='col'>Volume Transacional</th></tr> "
-  
+  myObj.sort(function (a, b) {
+    return b.volume_transacional-a.volume_transacional;
+  });  
   for (x in myObj) {
-  txt += "<tr><td>" + myObj[x].nome_agente + "</td>" +
-  "<td>" + myObj[x].volume_transacional + "</td></tr> ";
+    txt += '<a class="dropdown-item" href="#" onclick="goToDash('+myObj[x].id_agente.toString()+')">' + myObj[x].nome_agente + "</a>";
   }
-  txt += "</table>" 
-  document.getElementById("tabelaParceiros").innerHTML = txt;
+  document.getElementById("dropdownParceiros").innerHTML = txt;
 }
 
 
 function incializaPagina(){
   tableParceiros();
   exibirUsuario();
+  dropParceiros();
 }
+
