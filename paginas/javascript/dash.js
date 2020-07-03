@@ -25,7 +25,7 @@ function complete(){
     document.getElementById("valorSucesso").value=sumSucesso;
     document.getElementById("valorFalha").value=sumFalha;
     document.getElementById("valorFraude").value=sumFraude;
-    document.getElementById("valorParceiro").value = myObj.nome_agente +" / "+myObj.volume_transacional;
+    document.getElementById("valorParceiro").value = myObj.nome_agente +" / R$"+myObj.volume_transacional;
 }
 
 function voltar(){

@@ -26,7 +26,7 @@ function tableParceiros(){
   txt = "<h3 class='text-center'>Top 10 Parceiros</h3>"+
   "<table class='table'>" +
   "<thead class='thead-dark'><tr><th scope='col'>Parceiro</th> " +
-  "<th scope='col'>Volume Transacional</th></tr> "
+  "<th scope='col'>Volume Transacional em R$</th></tr> "
   
   for (x in myObj) {
     txt += "<tr><td>" + myObj[x].nome_agente + "</td>" +
