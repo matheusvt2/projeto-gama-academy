@@ -1,4 +1,5 @@
 function complete(){
+    exibirUsuario()
     var agente = localStorage.getItem("dashAgente");
     var myObj, x, txt = "";
 
@@ -24,7 +25,7 @@ function complete(){
     document.getElementById("valorSucesso").value=sumSucesso;
     document.getElementById("valorFalha").value=sumFalha;
     document.getElementById("valorFraude").value=sumFraude;
-    document.getElementById("valorParceiro").value = myObj.nome_agente;
+    document.getElementById("valorParceiro").value = myObj.nome_agente +" / "+myObj.volume_transacional;
 }
 
 function voltar(){

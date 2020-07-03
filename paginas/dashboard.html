@@ -10,20 +10,26 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./javascript/dash.js"></script>
     <script type="text/javascript" src="./javascript/logout.js"></script>
+    <script type="text/javascript" src="./javascript/header.js"></script>
 </head>
-<header style="margin-top: 1%;">
-  <div class="row" style="margin-left: 2%;margin-top: 1%;">
-    <div class="form-group">
-      <button type="button" class="btn btn-primary btn-block" onclick="voltar()"> Voltar  </button>
-    </div> <!-- form-group// -->  
-    <div class="form-group" style="margin-left: 1%;">
+<body onload="complete()">
+  <header class="row navbar navbar-light bg-light" style=" margin-top: 1%; margin-bottom: 1%;">
+    <div class="col-4">
+      <div id="fotoUsuario" class="col-4"></div>
+      <div id="perfil" class="col-8" stye></div>
+    </div>
+    <div class="text-center" style="margin-right: 1%;">
+      <button type="button" class="btn btn-primary btn-block"  onclick="voltar()"> Voltar  </button>
       <button type="button" class="btn btn-danger btn-block" onclick="logout()"> LogOut  </button>
     </div>
-    </div>
-</header>
-<body onload="complete()">
-  <div class="row" style="justify-content: center; margin-top: 10%;">
-      <div class="card" >
+  </header>
+
+  <div class="row" style="justify-content: center; margin-top: 1%;">
+    <h1 class="display-5" >Dashboard Agente Financeiro</h1>
+  </div>
+  <br>
+  <div class="row" style="justify-content: center; margin-top: 1%;">
+      <div class="card" style="width: 30%;">
           <article class="card-body">
             <form>
               <div class="input-group mb-3">
@@ -32,8 +38,6 @@
                 </div>
                 <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" id="valorParceiro" name="valorParceiro" readonly value="0" >
               </div>
-
-
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="basic-addon1"><strong>Sucesso</strong></span>

@@ -1,19 +1,3 @@
-function exibirUsuario(){
-
-    var usuarioLogado = localStorage.getItem("user");
-    if (!usuarioLogado){
-        window.location="index.html"
-    }else{
-        var usuarioJson = JSON.parse(usuarioLogado);
-        document.getElementById("perfil").innerHTML = 
-        "<h3>" + usuarioJson.nome + "</h3>" + 
-        "<h4>(" + usuarioJson.racf + ")</h4>";
-        document.getElementById("fotoUsuario").innerHTML = 
-        "<img alt='Imagem não encontrada' style='width:120px;height:120px' src=./images/" + usuarioJson.foto + ">"
-
-    }
-}
-
 function tableParceiros(){
   var cabecalho={
     method : "GET",
@@ -22,15 +6,16 @@ function tableParceiros(){
     }
   }
 
+
   fetch("http://localhost:8080/agentes", cabecalho)
   .then(res => res.json())
   .then(res => {
       localStorage.setItem("agentes", JSON.stringify(res));
   })
   .catch(err => {
-      alert("Erro!");
+      alert("Erro!2");
   })
-
+  
   var agentes = localStorage.getItem("agentes");
   var myObj, x, txt = "";
 
@@ -40,7 +25,7 @@ function tableParceiros(){
   });
   txt = "<h3 class='text-center'>Top 10 Parceiros</h3>"+
   "<table class='table'>" +
-  "<thead><tr><th scope='col'>Parceiro</th> " +
+  "<thead class='thead-dark'><tr><th scope='col'>Parceiro</th> " +
   "<th scope='col'>Volume Transacional</th></tr> "
   
   for (x in myObj) {
@@ -66,7 +51,7 @@ function goToDash(nome){
       window.location='dashboard.html'
   })
   .catch(err => {
-      alert("Erro");
+      alert("Erro1");
   })
 
   
@@ -88,8 +73,11 @@ function dropParceiros(){
 
 
 function incializaPagina(){
-  tableParceiros();
-  exibirUsuario();
-  dropParceiros();
+  flag = exibirUsuario();
+  if(flag){
+    tableParceiros();
+    dropParceiros();
+  }  
+  
 }
 

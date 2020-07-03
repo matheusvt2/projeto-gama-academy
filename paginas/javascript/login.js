@@ -19,15 +19,11 @@ var cabecalho={
     }
 }
 
-alert(JSON.stringify(mensagem));
 
 fetch("http://localhost:8080/login", cabecalho)
 .then(res => res.json())
-.then(res => {
-    alert(JSON.stringify(res));
-    localStorage.setItem("user", JSON.stringify(res));
-    window.location="agentes.html";
-})
+.then(res => localStorage.setItem("user", JSON.stringify(res)))
+.then(res => window.location="agentes.html")
 .catch(err => {
     alert("Erro!");
 })

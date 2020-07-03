@@ -10,22 +10,31 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./javascript/agente.js"></script>
     <script type="text/javascript" src="./javascript/logout.js"></script>
+    <script type="text/javascript" src="./javascript/header.js"></script>
 </head>
+
 <body onload="incializaPagina()">
-  <div class="row" style="margin-left: 1%; margin-top: 1%; margin-bottom: 1%;">
-    <div id="fotoUsuario" style="margin-left: 1%; margin-right: 2%;"></div>
-    <div id="perfil" style="margin-right: 70%;"></div>
-    <div class="form-group">
+  <header class="row navbar navbar-light bg-light" style=" margin-top: 1%; margin-bottom: 1%;">
+    <div class="col-4">
+      <div id="fotoUsuario" class="col-"></div>
+      <div id="perfil" class="col-8" stye></div>
+    </div>
+    <div class="text-center" style="margin-right: 1%;">
       <button type="button" class="btn btn-danger btn-block" onclick="logout()"> LogOut  </button>
     </div> <!-- form-group// --> 
+  </header>
+    <div class="text-center" style="margin-left: 1%;margin-bottom: 1%;">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Selecione um Parceiro
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownParceiros"></div>
+    </div>
+  
+  <div class="row">
+    <div class="col-3"></div>
+    <div id="tabelaParceiros" class="col-6"  style="justify-content: center;"></div>
+    <div class="col-3"></div>
   </div>
-  <div class="dropdown" style="margin-left: 1%;">
-    <h3>Selecione o Parceiro</h3>
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Parceiro
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownParceiros"></div>
-  </div>
-  <div id="tabelaParceiros"></div>
+  
 </body>
 </html>
